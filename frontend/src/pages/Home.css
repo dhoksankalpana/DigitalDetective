@@ -1,0 +1,385 @@
+.home-page {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.home-nav {
+  width: min(1200px, calc(100% - 40px));
+  height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-hover);
+  border-radius: 12px;
+}
+
+.brand-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.brand-name span {
+  color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero {
+  position: relative;
+  width: min(1200px, calc(100% - 40px));
+  min-height: calc(100vh - 76px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+  padding: 70px 0 100px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-tag {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  margin-bottom: 24px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-hover);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--success);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.8);
+}
+
+.hero h1 {
+  max-width: 720px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 7vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -3px;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero-description {
+  max-width: 610px;
+  margin-top: 25px;
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 35px;
+  margin-top: 50px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-stat strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
+}
+
+.hero-stat span {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 500px;
+  display: grid;
+  place-items: center;
+}
+
+.radar {
+  position: relative;
+  width: min(430px, 80vw);
+  aspect-ratio: 1;
+  border: 1px solid rgba(76, 201, 240, 0.25);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(76, 201, 240, 0.08) 0,
+      rgba(76, 201, 240, 0.025) 35%,
+      transparent 70%
+    );
+  box-shadow:
+    0 0 80px rgba(76, 201, 240, 0.08),
+    inset 0 0 60px rgba(76, 201, 240, 0.04);
+}
+
+.radar::before,
+.radar::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 1px solid rgba(76, 201, 240, 0.16);
+  border-radius: 50%;
+}
+
+.radar::after {
+  inset: 28%;
+}
+
+.radar-line-horizontal,
+.radar-line-vertical {
+  position: absolute;
+  background: rgba(76, 201, 240, 0.12);
+}
+
+.radar-line-horizontal {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+
+.radar-line-vertical {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+}
+
+.radar-sweep {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    transparent
+  );
+  animation: radarSweep 4s linear infinite;
+  box-shadow: 0 0 12px rgba(76, 201, 240, 0.8);
+}
+
+.radar-point {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(76, 201, 240, 0.9);
+  animation: pulse 2s infinite;
+}
+
+.point-one {
+  top: 30%;
+  left: 63%;
+}
+
+.point-two {
+  top: 62%;
+  left: 30%;
+  animation-delay: 0.7s;
+}
+
+.point-three {
+  top: 69%;
+  left: 66%;
+  animation-delay: 1.3s;
+}
+
+.scan-card {
+  position: absolute;
+  right: -10px;
+  bottom: 30px;
+  width: 220px;
+  padding: 18px;
+  background: rgba(8, 19, 28, 0.9);
+  border: 1px solid var(--border-hover);
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px);
+  animation: floating 4s ease-in-out infinite;
+}
+
+.scan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.scan-header span {
+  color: var(--text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.scan-status {
+  color: var(--success);
+  font-size: 11px;
+}
+
+.scan-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 12px;
+}
+
+.scan-row:last-child {
+  border-bottom: none;
+}
+
+.scan-row span {
+  color: var(--text-muted);
+}
+
+@keyframes radarSweep {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.7);
+    opacity: 1;
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 50px;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .hero h1 {
+    font-size: clamp(45px, 10vw, 68px);
+  }
+}
+
+@media (max-width: 600px) {
+  .home-nav {
+    width: calc(100% - 24px);
+  }
+
+  .brand-name {
+    font-size: 17px;
+  }
+
+  .nav-actions .btn-secondary {
+    display: none;
+  }
+
+  .hero {
+    width: calc(100% - 24px);
+    padding-top: 40px;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-stats {
+    gap: 20px;
+  }
+
+  .hero-stat strong {
+    font-size: 20px;
+  }
+
+  .hero-visual {
+    min-height: 350px;
+  }
+
+  .scan-card {
+    right: 0;
+    bottom: 10px;
+  }
+}

@@ -1,0 +1,931 @@
+.crime-scene-page {
+  width: 100%;
+  min-height: 100%;
+  color: #e8f1ff;
+}
+
+.crime-scene-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.crime-scene-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4ea1ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  margin-bottom: 8px;
+}
+
+.crime-scene-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.crime-scene-header p {
+  margin: 8px 0 0;
+  color: #8ea3bd;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.crime-scene-refresh {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border: 1px solid rgba(78, 161, 255, 0.25);
+  border-radius: 10px;
+  background: rgba(16, 32, 54, 0.9);
+  color: #dcecff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.crime-scene-refresh:hover {
+  border-color: rgba(78, 161, 255, 0.6);
+  background: rgba(24, 46, 76, 0.95);
+}
+
+.crime-scene-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spin {
+  animation: scene-spin 1s linear infinite;
+}
+
+@keyframes scene-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.crime-scene-error {
+  margin-bottom: 18px;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 87, 87, 0.3);
+  border-radius: 10px;
+  background: rgba(70, 22, 28, 0.35);
+  color: #ff9c9c;
+}
+
+.crime-scene-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 18px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(91, 125, 163, 0.2);
+  border-radius: 14px;
+  background: rgba(10, 23, 39, 0.85);
+}
+
+.scene-case-selector {
+  flex: 1;
+  max-width: 600px;
+}
+
+.scene-case-selector label {
+  display: block;
+  margin-bottom: 8px;
+  color: #6f89a7;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.scene-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 13px;
+  height: 46px;
+  border: 1px solid rgba(91, 125, 163, 0.25);
+  border-radius: 9px;
+  background: rgba(6, 16, 28, 0.9);
+  color: #6faeff;
+}
+
+.scene-select-wrapper select {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #e7f1ff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.scene-select-wrapper option {
+  background: #0b1b2e;
+  color: #e7f1ff;
+}
+
+.scene-current-case {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  min-width: 150px;
+}
+
+.scene-current-case span {
+  color: #667f9d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.scene-current-case strong {
+  color: #54a7ff;
+  font-size: 15px;
+}
+
+.scene-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.scene-stat {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px;
+  border: 1px solid rgba(91, 125, 163, 0.18);
+  border-radius: 12px;
+  background: rgba(10, 23, 39, 0.82);
+}
+
+.scene-stat-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.scene-stat span {
+  display: block;
+  margin-bottom: 3px;
+  color: #7187a2;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.scene-stat strong {
+  color: #edf5ff;
+  font-size: 22px;
+}
+
+.evidence-stat .scene-stat-icon {
+  background: rgba(55, 146, 255, 0.12);
+  color: #4ea1ff;
+}
+
+.suspect-stat .scene-stat-icon {
+  background: rgba(255, 78, 108, 0.12);
+  color: #ff6680;
+}
+
+.clue-stat .scene-stat-icon {
+  background: rgba(255, 191, 71, 0.12);
+  color: #ffc44d;
+}
+
+.timeline-stat .scene-stat-icon {
+  background: rgba(152, 110, 255, 0.12);
+  color: #a77aff;
+}
+
+.crime-scene-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 20px;
+}
+
+.crime-scene-card,
+.scene-information-panel {
+  border: 1px solid rgba(91, 125, 163, 0.2);
+  border-radius: 15px;
+  background: rgba(7, 19, 33, 0.92);
+  overflow: hidden;
+}
+
+.crime-scene-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(91, 125, 163, 0.16);
+}
+
+.crime-scene-card-header > div:first-child span {
+  color: #5f7896;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.crime-scene-card-header h2 {
+  margin: 5px 0 0;
+  color: #eef6ff;
+  font-size: 18px;
+}
+
+.scene-live-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 9px;
+  border: 1px solid rgba(50, 212, 143, 0.2);
+  border-radius: 20px;
+  color: #5ce3a6;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.scene-live-status span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38dc8f;
+  box-shadow: 0 0 8px rgba(56, 220, 143, 0.8);
+}
+
+.scene-map-wrapper {
+  padding: 20px;
+}
+
+.scene-map {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border: 2px solid #294563;
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      rgba(42, 69, 96, 0.16) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(42, 69, 96, 0.16) 1px,
+      transparent 1px
+    ),
+    #081525;
+  background-size: 32px 32px;
+  box-shadow:
+    inset 0 0 70px rgba(0, 0, 0, 0.35),
+    0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.scene-wall {
+  position: absolute;
+  background: #304c69;
+  z-index: 1;
+}
+
+.wall-top,
+.wall-bottom {
+  left: 5%;
+  right: 5%;
+  height: 7px;
+}
+
+.wall-top {
+  top: 7%;
+}
+
+.wall-bottom {
+  bottom: 7%;
+}
+
+.wall-left,
+.wall-right {
+  top: 7%;
+  bottom: 7%;
+  width: 7px;
+}
+
+.wall-left {
+  left: 5%;
+}
+
+.wall-right {
+  right: 5%;
+}
+
+.scene-room {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(72, 112, 151, 0.3);
+  background: rgba(18, 39, 62, 0.48);
+  color: rgba(137, 164, 191, 0.5);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  pointer-events: none;
+}
+
+.room-living {
+  left: 8%;
+  top: 10%;
+  width: 43%;
+  height: 42%;
+}
+
+.room-office {
+  left: 53%;
+  top: 10%;
+  width: 39%;
+  height: 31%;
+}
+
+.room-bedroom {
+  left: 53%;
+  top: 44%;
+  width: 39%;
+  height: 45%;
+}
+
+.room-storage {
+  left: 8%;
+  top: 55%;
+  width: 20%;
+  height: 34%;
+}
+
+.room-hall {
+  left: 30%;
+  top: 55%;
+  width: 20%;
+  height: 34%;
+}
+
+.scene-door {
+  position: absolute;
+  width: 35px;
+  height: 6px;
+  background: #66a4d9;
+  z-index: 2;
+}
+
+.door-one {
+  left: 47%;
+  top: 51%;
+}
+
+.door-two {
+  left: 51%;
+  top: 37%;
+  transform: rotate(90deg);
+}
+
+.door-three {
+  left: 27%;
+  top: 73%;
+}
+
+.scene-window {
+  position: absolute;
+  width: 70px;
+  height: 5px;
+  border: 1px solid #4b82ad;
+  background: #163b5c;
+  z-index: 2;
+}
+
+.window-one {
+  left: 17%;
+  top: 7%;
+}
+
+.window-two {
+  right: 18%;
+  bottom: 7%;
+}
+
+.scene-marker {
+  position: absolute;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.marker-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0.18;
+  animation: marker-pulse-animation 2s infinite;
+}
+
+.marker-icon {
+  position: absolute;
+  inset: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: #071321;
+  transition: 0.2s ease;
+}
+
+.scene-marker:hover .marker-icon {
+  transform: scale(1.2);
+  box-shadow: 0 0 18px currentColor;
+}
+
+.marker-label {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 5px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: rgba(3, 10, 18, 0.92);
+  color: #b7cce3;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.marker-evidence {
+  color: #4ea1ff;
+}
+
+.marker-evidence .marker-pulse {
+  background: #4ea1ff;
+}
+
+.marker-suspect {
+  color: #ff5d7a;
+}
+
+.marker-suspect .marker-pulse {
+  background: #ff5d7a;
+}
+
+.marker-clue {
+  color: #ffc34d;
+}
+
+.marker-clue .marker-pulse {
+  background: #ffc34d;
+}
+
+.marker-timeline {
+  color: #a277ff;
+}
+
+.marker-timeline .marker-pulse {
+  background: #a277ff;
+}
+
+@keyframes marker-pulse-animation {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+}
+
+.empty-scene {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  color: #6d87a4;
+  text-align: center;
+}
+
+.empty-scene strong {
+  color: #afc2d7;
+  font-size: 14px;
+}
+
+.empty-scene span {
+  max-width: 260px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.scene-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 13px 20px;
+  border-top: 1px solid rgba(91, 125, 163, 0.16);
+}
+
+.scene-legend div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #7890aa;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-evidence {
+  background: #4ea1ff;
+}
+
+.legend-suspect {
+  background: #ff5d7a;
+}
+
+.legend-clue {
+  background: #ffc34d;
+}
+
+.legend-timeline {
+  background: #a277ff;
+}
+
+.scene-information-panel {
+  min-height: 100%;
+}
+
+.scene-empty-panel {
+  height: 100%;
+  min-height: 430px;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.scene-empty-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border: 1px solid rgba(78, 161, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(78, 161, 255, 0.08);
+  color: #4ea1ff;
+}
+
+.scene-empty-panel h3 {
+  margin: 0 0 9px;
+  color: #e6f0fb;
+  font-size: 17px;
+}
+
+.scene-empty-panel p {
+  max-width: 240px;
+  margin: 0 0 25px;
+  color: #748ca7;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.scene-instruction {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid rgba(91, 125, 163, 0.12);
+  color: #8fa5bd;
+  font-size: 11px;
+  text-align: left;
+}
+
+.scene-instruction span {
+  color: #4ea1ff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.scene-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 0;
+}
+
+.detail-type-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.detail-evidence {
+  color: #4ea1ff;
+  background: rgba(78, 161, 255, 0.1);
+}
+
+.detail-suspect {
+  color: #ff6680;
+  background: rgba(255, 102, 128, 0.1);
+}
+
+.detail-clue {
+  color: #ffc34d;
+  background: rgba(255, 196, 77, 0.1);
+}
+
+.detail-timeline {
+  color: #a277ff;
+  background: rgba(162, 119, 255, 0.1);
+}
+
+.scene-detail-close {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(91, 125, 163, 0.2);
+  border-radius: 8px;
+  background: transparent;
+  color: #7088a3;
+  cursor: pointer;
+}
+
+.scene-detail-close:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #d7e6f6;
+}
+
+.scene-detail-type {
+  padding: 18px 20px 0;
+  color: #4ea1ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.scene-information-panel h3 {
+  margin: 7px 20px 0;
+  color: #edf5ff;
+  font-size: 21px;
+}
+
+.scene-detail-description {
+  margin: 12px 20px 22px;
+  color: #8198b1;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.scene-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 20px;
+  border: 1px solid rgba(91, 125, 163, 0.15);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.scene-detail-grid div {
+  padding: 12px;
+  border-right: 1px solid rgba(91, 125, 163, 0.15);
+  border-bottom: 1px solid rgba(91, 125, 163, 0.15);
+}
+
+.scene-detail-grid div:nth-child(2n) {
+  border-right: 0;
+}
+
+.scene-detail-grid div:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.scene-detail-grid span {
+  display: block;
+  margin-bottom: 4px;
+  color: #607995;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.scene-detail-grid strong {
+  color: #c8d8e9;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.scene-detail-footer {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 20px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: rgba(78, 161, 255, 0.06);
+  color: #6d91b7;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.crime-scene-loading {
+  padding: 80px 20px;
+  border: 1px solid rgba(91, 125, 163, 0.18);
+  border-radius: 14px;
+  background: rgba(7, 19, 33, 0.8);
+  color: #7890aa;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .crime-scene-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .scene-information-panel {
+    min-height: 300px;
+  }
+
+  .scene-empty-panel {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 850px) {
+  .scene-stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .crime-scene-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .crime-scene-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .scene-current-case {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .crime-scene-header h1 {
+    font-size: 25px;
+  }
+
+  .scene-stat-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .scene-stat {
+    padding: 12px;
+  }
+
+  .scene-stat-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .scene-stat strong {
+    font-size: 18px;
+  }
+
+  .scene-map {
+    min-height: 420px;
+  }
+
+  .scene-map-wrapper {
+    padding: 10px;
+  }
+
+  .crime-scene-card-header {
+    padding: 14px;
+  }
+
+  .crime-scene-card-header h2 {
+    font-size: 15px;
+  }
+
+  .scene-legend {
+    gap: 10px;
+    padding: 12px;
+  }
+}
+.scene-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scene-action-button {
+  padding: 7px 11px;
+  border: 1px solid rgba(78, 161, 255, 0.25);
+  border-radius: 7px;
+  background: rgba(78, 161, 255, 0.08);
+  color: #83bdff;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.scene-action-button:hover {
+  border-color: rgba(78, 161, 255, 0.55);
+  background: rgba(78, 161, 255, 0.16);
+}
+
+.scene-action-button.reset {
+  border-color: rgba(255, 112, 112, 0.2);
+  background: rgba(255, 112, 112, 0.06);
+  color: #ff9292;
+}
+
+.scene-action-button.reset:hover {
+  border-color: rgba(255, 112, 112, 0.5);
+  background: rgba(255, 112, 112, 0.12);
+}
+
+.scene-action-message {
+  margin: 0 20px 12px;
+  padding: 9px 12px;
+  border: 1px solid rgba(53, 218, 145, 0.2);
+  border-radius: 7px;
+  background: rgba(53, 218, 145, 0.06);
+  color: #69dda8;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.marker-dragging {
+  cursor: grabbing !important;
+  z-index: 50;
+}
+
+.marker-dragging .marker-icon {
+  transform: scale(1.25);
+  box-shadow: 0 0 22px currentColor;
+}
+
+.scene-marker {
+  cursor: grab;
+}
+
+@media (max-width: 700px) {
+  .scene-header-actions {
+    flex-wrap: wrap;
+  }
+
+  .scene-live-status {
+    display: none;
+  }
+}
